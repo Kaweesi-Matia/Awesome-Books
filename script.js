@@ -22,6 +22,14 @@ function createListOfBooks(arr) {
   return items;
 }
 
+function displayBooks() {
+  const listOfBooks = document.querySelector('.list_of_books');
+  listOfBooks.innerHTML = `
+            <ul id="theBooks">List of Books: <br />
+            ${createListOfBooks(booksInLocalstorage)}</ul>
+        `;
+}
+
 function addNewBook(bookTitle, bookAuthor) {
   const book = {
     title: bookTitle,
