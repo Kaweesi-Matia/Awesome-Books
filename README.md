@@ -2,7 +2,8 @@
 
 # Awesome Books
 
-> This is a project which allows us to add or remove books using plain JavaScript with objects only
+
+> This is a project which allows us to add or remove books using plain JavaScript with classes and objects.
 
 ## Built With
 
