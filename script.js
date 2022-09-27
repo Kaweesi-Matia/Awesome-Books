@@ -1,4 +1,12 @@
 /* eslint-disable no-unused-vars */
+
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+}
+
 if (localStorage.getItem('list of Books') === null) {
   localStorage.setItem('list of Books', JSON.stringify([]));
 }
@@ -13,20 +21,32 @@ function createListOfBooks(arr) {
   let items = '';
   for (let i = 0; i < arr.length; i += 1) {
     items += `
-          <li>${arr[i].title}</li> <br />
-          <li>${arr[i].author}</li> <br />
-          <li><button onclick="removeBook(${i})">Remove</button></li>
-          <hr />
-          `;
+      <div class="book_number">
+        <li>${arr[i].title} by ${arr[i].author}</li> <br />
+        <li><button class="remove-btn" onclick="removeBook(${i})">Remove</button></li>
+      </div>
+    `;
   }
   return items;
 }
 
-function addNewBook(bookTitle, bookAuthor) {
-  const book = {
-    title: bookTitle,
-    author: bookAuthor,
-  };
+function clearFields() {
+  document.querySelector('#title').value = '';
+  document.querySelector('#author').value = '';
+}
+
+function displayBooks() {
+  const bookList = document.querySelector('.book-list');
+
+  bookList.innerHTML = `    
+      ${createListOfBooks(booksInLocalstorage)}
+    `;
+
+  clearFields();
+}
+
+function addBook(bookTitle, bookAuthor) {
+  const book = new Book(bookTitle, bookAuthor);
   booksInLocalstorage.push(book);
   updateLocalStorage();
   displayBooks();
@@ -40,10 +60,11 @@ function removeBook(i) {
 
 const form = document.querySelector('form');
 form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
   const title = document.querySelector('#title');
   const author = document.querySelector('#author');
-  e.preventDefault();
-  addNewBook(title.value, author.value);
+  addBook(title.value, author.value);
 });
 
 window.onload = displayBooks();

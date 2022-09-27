@@ -1,37 +1,66 @@
 body {
-  padding-left: 30%;
+  background-color: whitesmoke;
 }
 
-hr {
-  max-width: 400px;
-  position: relative;
-  right: 249px;
-}
-
-button {
-  width: 100px;
-  height: 28px;
-  border-radius: 3px;
-}
-
-#add {
-  margin-left: 39px;
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 input {
-  border-radius: 5px;
-  height: 30px;
-  width: 200px;
-  margin-left: 39px;
-  margin-top: 10px;
   margin-bottom: 10px;
+  width: 300px;
+  height: 30px;
+  border: 2px solid black;
 }
 
-h1 {
-  margin-left: 39px;
-  font-size: 30px;
+#add_book {
+  width: 80px;
+  height: 30px;
+  position: relative;
+  left: 112px;
+}
+
+.book-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid black;
+  width: 600px;
+  margin-left: 350px;
 }
 
 li {
   list-style: none;
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background: black;
+  width: 100px;
+  margin-top: 15px;
+}
+
+#awesome {
+  margin-left: 540px;
+}
+
+button {
+  height: 20px;
+  border: 2px solid black;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+  margin-top: 8px;
+  margin-right: 10px;
+}
+
+.book_number {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ddd;
+  margin-bottom: 10px;
+  width: 100%;
 }
