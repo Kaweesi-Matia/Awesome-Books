@@ -1,4 +1,10 @@
 /* eslint-disable no-unused-vars */
+const displayList = document.querySelector('#display_list');
+const displayForm = document.querySelector('#display_form');
+const contactLink = document.querySelector('#contact');
+const displayContact = document.querySelector('#display_contact');
+
+const addBookToList = document.querySelector('#form');
 
 class Book {
   constructor(title, author) {
@@ -35,7 +41,7 @@ function clearFields() {
   document.querySelector('#author').value = '';
 }
 
-function displayBooks() {
+function displayBookz() {
   const bookList = document.querySelector('.book-list');
 
   bookList.innerHTML = `    
@@ -43,21 +49,24 @@ function displayBooks() {
     `;
 
   clearFields();
+  contactLink.style.display = 'none';
+  addBookToList.style.display = 'none';
 }
 
 function addBook(bookTitle, bookAuthor) {
   const book = new Book(bookTitle, bookAuthor);
   booksInLocalstorage.push(book);
   updateLocalStorage();
-  displayBooks();
+  displayBookz();
 }
 
 function removeBook(i) {
   booksInLocalstorage.splice(i, 1);
   updateLocalStorage();
-  displayBooks();
+  displayBookz();
 }
-
+const bookListItems = document.querySelector('#book-list');
+const awesomeHeading = document.querySelector('#awesome');
 const form = document.querySelector('form');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -65,6 +74,51 @@ form.addEventListener('submit', (e) => {
   const title = document.querySelector('#title');
   const author = document.querySelector('#author');
   addBook(title.value, author.value);
+  awesomeHeading.style.display = 'block';
+  bookListItems.style.display = 'flex';
 });
 
-window.onload = displayBooks();
+// generating the date dynamically
+const displayDate = document.querySelector('.date');
+const date = new Date();
+const dateNow = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+const time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+displayDate.innerHTML = `${dateNow.toString()} ${time}`;
+
+function showOnlyForm() {
+  addBookToList.style.display = 'flex';
+  awesomeHeading.style.display = 'none';
+  bookListItems.style.display = 'none';
+  contactLink.style.display = 'none';
+}
+function showBooksOnly() {
+  addBookToList.style.display = 'none';
+  contactLink.style.display = 'none';
+  awesomeHeading.style.display = 'block';
+  bookListItems.style.display = 'flex';
+}
+function showOnlyContact() {
+  addBookToList.style.display = 'none';
+  awesomeHeading.style.display = 'none';
+  bookListItems.style.display = 'none';
+  contactLink.style.display = 'flex';
+}
+
+contactLink.innerHTML = `<h2>
+Contact information
+</h2>
+<p> Do you have any questions or you just want to say "Hello"
+  <br>You can reach out to us!
+  </p>
+<ul>
+  <li>Our email:mail@mail.com</li>
+  <li>Our Phone number:004386534422</li>
+  <li>Our address:Streetname 22,88273 Kampala,Uganda </li>
+</ul>`;
+
+displayList.addEventListener('click', showBooksOnly);
+
+displayForm.addEventListener('click', showOnlyForm);
+
+displayContact.addEventListener('click', showOnlyContact);
+window.onload = displayBookz();
