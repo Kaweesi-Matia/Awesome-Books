@@ -4,28 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Awesome books using JS classes</title>
+    <title>Awesome books refactored</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
-    
-      <section >
-        <h1 id="awesome">All awesome books</h1>
-        <section class="book-list" id="book-list"></section>
+    <header>
+      <nav class="nav_bar">
+        <h1 id="awesome_books">Awesome Books</h1>
+        <ul id="navbar_list">
+          <li><a href="#book-list" id="display_list">List</a></li>
+          <li><a href="#form" id="display_form">Add new</a></li>
+          <li><a href="#contact" id="display_contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="date"></div>
+    </header>
+    <section>
+      <h1 id="awesome">All awesome books</h1>
 
-       
-         <div>
-          <hr>
-         </div>
-        <form id="form">
-          <h2>Add a new book</h2>
-          <input type="text" id="title" placeholder="Title" />
-          <input type="text" id="author" placeholder="Author" />
-          <button type="submit" id="add_book">Add</button>
-        </form>
+      <section class="book-list" id="book-list"></section>
 
+      <form id="form">
+        <h2>Add a new book</h2>
+        <input type="text" id="title" placeholder="Title" />
+        <input type="text" id="author" placeholder="Author" />
+        <button type="submit" id="add_book">Add</button>
+      </form>
+      <section id="contact"></section>
     </section>
+    <footer>
+      <p>Copyright ...</p>
+    </footer>
+
     <script src="./script.js"></script>
   </body>
 </html>
