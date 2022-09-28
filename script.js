@@ -1,6 +1,10 @@
 /* eslint-disable no-unused-vars */
+const displayList = document.querySelector('#display_list');
+const displayForm = document.querySelector('#display_form');
+const contactLink = document.querySelector('#contact');
+const displayContact = document.querySelector('#display_contact');
 
-
+const addBookToList = document.querySelector('#form');
 
 class Book {
   constructor(title, author) {
