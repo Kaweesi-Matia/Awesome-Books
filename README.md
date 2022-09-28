@@ -3,7 +3,7 @@
 # Awesome Books
 
 
-> This is a project which allows us to add or remove books using plain JavaScript with classes and objects.
+> This is an SPA for a library. HTML DOM manipulation is used for dynamically passing data to a single web page.
 
 ## Built With
 
